@@ -1,0 +1,9 @@
+#!/bin/sh
+# Nothing is pushed before it is green.
+set -eu
+
+top=$(git rev-parse --show-toplevel)
+cd "$top"
+
+printf 'pre-push: scripts/task check\n'
+scripts/task check

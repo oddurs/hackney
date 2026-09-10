@@ -1,0 +1,30 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++--------------------------------------------------------------------------------+
+| hackney │ Top stories                                                 ● failed |
+| Top   New   Best   Ask   Show   Jobs                                           |
+|─━━━────────────────────────────────────────────────────────────────────────────|
+|  ✗ https://hacker-news.firebaseio.com/v0/topstories.json: Connection Failed:   |
+|  Connect error: connection refused (os error 61)                               |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|────────────────────────────────────────────────────────────────────────────────|
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+| ✗ https://hacker-news.firebaseio.com/v0/topstories.json: Connection…  r retry  |
++--------------------------------------------------------------------------------+

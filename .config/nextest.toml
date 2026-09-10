@@ -1,0 +1,32 @@
+# Test runner configuration. scripts/task test runs the default profile; CI
+# sets NEXTEST_PROFILE=ci, which also writes JUnit for the job summary.
+
+[profile.default]
+# Report every failure in one run rather than stopping at the first.
+fail-fast = false
+# The end-to-end tests drive the real binary in a pseudo-terminal. If hackney
+# ever hangs, the test is killed rather than stalling the run: flagged as slow
+# at 30s and terminated at 90s.
+slow-timeout = { period = "30s", terminate-after = 3 }
+# macOS cannot create a pipe that is atomically close-on-exec, so under a
+# parallel run one test's child can inherit another's output pipe and be
+# blamed for a leak. Linux has no such race, so a leak there fails the run.
+leak-timeout = { period = "500ms", result = "pass" }
+
+[[profile.default.overrides]]
+platform = 'cfg(target_os = "linux")'
+leak-timeout = { period = "500ms", result = "fail" }
+
+[profile.ci]
+fail-fast = false
+slow-timeout = { period = "30s", terminate-after = 3 }
+leak-timeout = { period = "500ms", result = "pass" }
+# A flaky test is a bug to fix, not a result to retry past.
+retries = 0
+
+[[profile.ci.overrides]]
+platform = 'cfg(target_os = "linux")'
+leak-timeout = { period = "500ms", result = "fail" }
+
+[profile.ci.junit]
+path = "junit.xml"

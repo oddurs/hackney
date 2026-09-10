@@ -1,0 +1,46 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| hackney │ Top stories  50 stories                                                                                                                    ⠋ loading |
+| Top   New   Best   Ask   Show   Jobs                                                                                                                           |
+|─━━━──────────────────────────────────────────────────────────── 45/50 ─┬───────────────────────────────────────────────────────────────────────────────────────|
+|  10  ▲  439  ↳   12  Pg_search: full-text search in Postgres with…  5h │ A deep dive into how terminals render text, one cell at a time                        |
+|  11  ▲   87  ↳  988  Stripe is hiring infrastructure engineers (R…  5h │ jvns.ca · ▲ 299 · by dang · 22h ago                                                   |
+|  12  ▲ 1204  ↳    0  I miss the old web  theverge.com               6h │                                                                                       |
+|  13  ▲   33  ↳   41  Shopify moves back to native                   6h │  article   jvns.ca/blog/terminal-rendering                                            |
+|  14  ▲  301  ↳    1  Ask HN: How do you keep up with papers in yo…  7h │  thread    news.ycombinator.com/item?id=144                                           |
+|  15  ▲    7  ↳ 2345  The unreasonable effectiveness of plain text   7h │                                                                                       |
+|  16  ▲ 4321  ↳   77  Show HN: I built a tiny Forth that runs in a…  8h │ ─ 41 comments ─────────────────────────────────────────────────────────────────────── |
+|  17  ▲  150  ↳  305  SQLite is not a toy database  antonz.org       8h │                                                                                       |
+|  18  ▲  299  ↳   12  Why the moon has no atmosphere to speak of (…  9h │ ▾ alice  10m                                                                          |
+|  19  ▲  439  ↳  988  Rust 1.90 released  blog.rust-lang.org         9h │   Great write-up.                                                                     |
+|  20  ▲   87  ↳    0  Launch HN: Acme (YC S26) – Invoices that pay… 10h │                                                                                       |
+|  21  ▲ 1204  ↳   41  A deep dive into how terminals render text,…  10h │ │ ▾ bob  10m                                                                          |
+|  22  ▲   33  ↳    1  Pg_search: full-text search in Postgres with… 11h │ │   Agreed.                                                                           |
+|  23  ▲  301  ↳ 2345  Stripe is hiring infrastructure engineers (R… 11h │                                                                                       |
+|  24  ▲    7  ↳   77  I miss the old web  theverge.com              12h │ ▾ carol  10m                                                                          |
+|  25  ▲ 4321  ↳  305  Shopify moves back to native                  12h │   Has anyone benchmarked this?                                                        |
+|  26  ▲  150  ↳   12  Ask HN: How do you keep up with papers in yo… 13h │                                                                                       |
+|  27  ▲  299  ↳  988  The unreasonable effectiveness of plain text  13h │                                                                                       |
+|  28  ▲  439  ↳    0  Show HN: I built a tiny Forth that runs in a… 14h │                                                                                       |
+|  29  ▲   87  ↳   41  SQLite is not a toy database  antonz.org      14h │                                                                                       |
+|  30  ▲ 1204  ↳    1  Why the moon has no atmosphere to speak of (… 15h │                                                                                       |
+|  31  ▲   33  ↳ 2345  Rust 1.90 released  blog.rust-lang.org        15h │                                                                                       |
+|  32  ▲  301  ↳   77  Launch HN: Acme (YC S26) – Invoices that pay… 16h │                                                                                       |
+|  33  ▲    7  ↳  305  A deep dive into how terminals render text,…  16h │                                                                                       |
+|  34  ▲ 4321  ↳   12  Pg_search: full-text search in Postgres with… 17h │                                                                                       |
+|  35  ▲  150  ↳  988  Stripe is hiring infrastructure engineers (R… 17h │                                                                                       |
+|  36  ▲  299  ↳    0  I miss the old web  theverge.com              18h │                                                                                       |
+|  37  ▲  439  ↳   41  Shopify moves back to native                  18h │                                                                                       |
+|  38  ▲   87  ↳    1  Ask HN: How do you keep up with papers in yo… 19h │                                                                                       |
+|  39  ▲ 1204  ↳ 2345  The unreasonable effectiveness of plain text  19h │                                                                                       |
+|  40  ▲   33  ↳   77  Show HN: I built a tiny Forth that runs in a… 20h │                                                                                       |
+|  41  ▲  301  ↳  305  SQLite is not a toy database  antonz.org      20h │                                                                                       |
+|  42  ▲    7  ↳   12  Why the moon has no atmosphere to speak of (… 21h │                                                                                       |
+|  43  ▲ 4321  ↳  988  Rust 1.90 released  blog.rust-lang.org        21h │                                                                                       |
+|  44  ▲  150  ↳    0  Launch HN: Acme (YC S26) – Invoices that pay… 22h │                                                                                       |
+|▎ 45  ▲  299  ↳   41  A deep dive into how terminals render text,…  22h │                                                                                       |
+| 1–6 feed   o open   c discuss   n/p thread   x fold   / search   z zoom   r refresh                                                            ? help   q quit |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+

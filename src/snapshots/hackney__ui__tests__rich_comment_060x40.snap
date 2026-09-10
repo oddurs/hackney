@@ -1,0 +1,46 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++------------------------------------------------------------+
+| hackney │ Top stories  1 story                    ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                       |
+|─━━━────────────────────────────────────────────────────────|
+|▎  1  ▲  121  ↳    4  Show HN: A terminal HN reader      1h |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|                                                            |
+|────────────────────────────────────────────────────────────|
+| Show HN: A terminal HN reader                              |
+| example.com · ▲ 121 · by pg · 1h ago                       |
+|                                                            |
+|  article   example.com/post                                |
+|  thread    news.ycombinator.com/item?id=1                  |
+|                                                            |
+| ─ 9 comments ───────────────────────────────────────────── |
+|                                                            |
+| ▾ tptacek  10m                                             |
+|   Two things. First, a quote:                              |
+|                                                            |
+|   > The quick brown fox jumps over the lazy dog, and keeps |
+|   on running well past the edge of the pane.               |
+|                                                            |
+|   Second, some code:                                       |
+|                                                            |
+|   fn main() {                                              |
+|       println!("a line of code longer than the pane is wid |
+|   e, by some way");                                        |
+|   }                                                        |
+|                                                            |
+| 1–6 feed   o open   c discuss              ? help   q quit |
++------------------------------------------------------------+

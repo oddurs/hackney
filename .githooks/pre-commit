@@ -1,0 +1,20 @@
+#!/bin/sh
+# Fast gate: formatting and lint. The full suite runs in pre-push.
+set -eu
+
+top=$(git rev-parse --show-toplevel)
+cd "$top"
+
+# Nothing staged means nothing to check (e.g. `git commit` during a merge).
+if git diff --cached --quiet; then
+	exit 0
+fi
+
+printf 'pre-commit: scripts/task fmt:check\n'
+if ! scripts/task fmt:check; then
+	printf '\npre-commit: formatting drift. run: scripts/task fmt\n' >&2
+	exit 1
+fi
+
+printf 'pre-commit: scripts/task lint\n'
+scripts/task lint

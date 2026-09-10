@@ -1,0 +1,46 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| hackney │ Top stories  30 stories                                                                                                                     ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                                                                                                                           |
+|─━━━────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────────|
+|▎  1  ▲  439  ↳  305  Shopify moves back to native                  30m │ Shopify moves back to native                                                          |
+|   2  ▲   87  ↳   12  Ask HN: How do you keep up with papers in yo…  1h │ shopify.engineering · ▲ 439 · by fnthawar2 · 30m ago                                  |
+|   3  ▲ 1204  ↳  988  The unreasonable effectiveness of plain text   1h │                                                                                       |
+|   4  ▲   33  ↳    0  Show HN: I built a tiny Forth that runs in a…  2h │  article   shopify.engineering/native                                                 |
+|   5  ▲  301  ↳   41  SQLite is not a toy database  antonz.org       2h │  thread    news.ycombinator.com/item?id=100                                           |
+|   6  ▲    7  ↳    1  Why the moon has no atmosphere to speak of (…  3h │                                                                                       |
+|   7  ▲ 4321  ↳ 2345  Rust 1.90 released  blog.rust-lang.org         3h │ ─ 305 comments ────────────────────────────────────────────────────────────────────── |
+|   8  ▲  150  ↳   77  Launch HN: Acme (YC S26) – Invoices that pay…  4h │                                                                                       |
+|   9  ▲  299  ↳  305  A deep dive into how terminals render text,…   4h │ ▾ alice  10m                                                                          |
+|  10  ▲  439  ↳   12  Pg_search: full-text search in Postgres with…  5h │   Great write-up.                                                                     |
+|  11  ▲   87  ↳  988  Stripe is hiring infrastructure engineers (R…  5h │                                                                                       |
+|  12  ▲ 1204  ↳    0  I miss the old web  theverge.com               6h │ │ ▾ bob  10m                                                                          |
+|  13  ▲   33  ↳   41  Shopify moves back to native                   6h │ │   Agreed.                                                                           |
+|  14  ▲  301  ↳    1  Ask HN: How do you keep up with papers in yo…  7h │                                                                                       |
+|  15  ▲    7  ↳ 2345  The unreasonable effectiveness of plain text   7h │ ▾ carol  10m                                                                          |
+|  16  ▲ 4321  ↳   77  Show HN: I built a tiny Forth that runs in a…  8h │   Has anyone benchmarked this?                                                        |
+|  17  ▲  150  ↳  305  SQLite is not a toy database  antonz.org       8h │                                                                                       |
+|  18  ▲  299  ↳   12  Why the moon has no atmosphere to speak of (…  9h │                                                                                       |
+|  19  ▲  439  ↳  988  Rust 1.90 released  blog.rust-lang.org         9h │                                                                                       |
+|  20  ▲   87  ↳    0  Launch HN: Acme (YC S26) – Invoices that pay… 10h │                                                                                       |
+|  21  ▲ 1204  ↳   41  A deep dive into how terminals render text,…  10h │                                                                                       |
+|  22  ▲   33  ↳    1  Pg_search: full-text search in Postgres with… 11h │                                                                                       |
+|  23  ▲  301  ↳ 2345  Stripe is hiring infrastructure engineers (R… 11h │                                                                                       |
+|  24  ▲    7  ↳   77  I miss the old web  theverge.com              12h │                                                                                       |
+|  25  ▲ 4321  ↳  305  Shopify moves back to native                  12h │                                                                                       |
+|  26  ▲  150  ↳   12  Ask HN: How do you keep up with papers in yo… 13h │                                                                                       |
+|  27  ▲  299  ↳  988  The unreasonable effectiveness of plain text  13h │                                                                                       |
+|  28  ▲  439  ↳    0  Show HN: I built a tiny Forth that runs in a… 14h │                                                                                       |
+|  29  ▲   87  ↳   41  SQLite is not a toy database  antonz.org      14h │                                                                                       |
+|  30  ▲ 1204  ↳    1  Why the moon has no atmosphere to speak of (… 15h │                                                                                       |
+|                                                                        │                                                                                       |
+|                                                                        │                                                                                       |
+|                                                                        │                                                                                       |
+|                                                                        │                                                                                       |
+|                                                                        │                                                                                       |
+|                                                                        │                                                                                       |
+| 1–6 feed   o open   c discuss   n/p thread   x fold   / search   z zoom   r refresh                                                            ? help   q quit |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+

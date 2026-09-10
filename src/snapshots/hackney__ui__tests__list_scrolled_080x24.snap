@@ -1,0 +1,30 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++--------------------------------------------------------------------------------+
+| hackney │ Top stories  50 stories                                     ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                                           |
+|─━━━──────────────────────────────────────────────────────────────────── 31/50 ─|
+|  24  ▲    7  ↳   77  I miss the old web  theverge.com                      12h |
+|  25  ▲ 4321  ↳  305  Shopify moves back to native  shopify.engineering     12h |
+|  26  ▲  150  ↳   12  Ask HN: How do you keep up with papers in your field? 13h |
+|  27  ▲  299  ↳  988  The unreasonable effectiveness of plain text          13h |
+|  28  ▲  439  ↳    0  Show HN: I built a tiny Forth that runs in a boot se… 14h |
+|  29  ▲   87  ↳   41  SQLite is not a toy database  antonz.org              14h |
+|  30  ▲ 1204  ↳    1  Why the moon has no atmosphere to speak of (2019)     15h |
+|▎ 31  ▲   33  ↳ 2345  Rust 1.90 released  blog.rust-lang.org                15h |
+|────────────────────────────────────────────────────────────────────────────────|
+| Rust 1.90 released                                                             |
+| blog.rust-lang.org · ▲ 33 · by dang · 15h ago                                  |
+|                                                                                |
+|  article   blog.rust-lang.org/2026/09/rust-1.90.html                           |
+|  thread    news.ycombinator.com/item?id=130                                    |
+|                                                                                |
+| ─ 2345 comments ────────────────────────────────────────────────────────────── |
+|                                                                                |
+| ▾ alice  10m                                                                   |
+|   Great write-up.                                                              |
+|                                                                                |
+| 1–6 feed   o open   c discuss   n/p thread   x fold            ? help   q quit |
++--------------------------------------------------------------------------------+

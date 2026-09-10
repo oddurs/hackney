@@ -1,0 +1,18 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++----------------------------------------+
+| h┌ keys ────────────────────────────┐o |
+| T│  j / k, ↓ / ↑      move through s│  |
+|─━│  g / G             first / last  │──|
+|▎ │  1–6, tab          switch feed   │e…|
+|  │  enter, o          open the artic│k…|
+|  │  c                 open the discu│o…|
+|──│  J / K, space / b  scroll comment│──|
+| S│  n / p             next / previou│  |
+| e│  x                 fold the threa│  |
+|  │  z                 comments full │  |
+|  │  /                 search Hacker │  |
+| 1└──────────────────────────────────┘t |
++----------------------------------------+

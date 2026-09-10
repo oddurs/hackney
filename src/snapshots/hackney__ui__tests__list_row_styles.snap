@@ -1,0 +1,23 @@
+---
+source: src/ui.rs
+expression: "rows.join(\"\\n\")"
+---
+-- selected, read
+"▎  1  ▲ " fg=Yellow bg=Rgb(46, 46, 48) NONE
+" 121  " fg=Reset bg=Rgb(46, 46, 48) NONE
+"↳ " fg=DarkGray bg=Rgb(46, 46, 48) NONE
+"   4  " fg=Reset bg=Rgb(46, 46, 48) NONE
+"Show HN: A terminal HN reader" fg=Reset bg=Rgb(46, 46, 48) BOLD
+"  1h " fg=Reset bg=Rgb(46, 46, 48) NONE
+-- read
+" " fg=Yellow bg=Reset NONE
+"  2  " fg=DarkGray bg=Reset NONE
+"▲ " fg=Yellow bg=Reset NONE
+" 122  ↳    4  Ask HN: What are you working…  2h " fg=DarkGray bg=Reset NONE
+-- unread
+" " fg=Yellow bg=Reset NONE
+"  3  " fg=DarkGray bg=Reset NONE
+"▲ " fg=Yellow bg=Reset NONE
+" 123  ↳    4  " fg=DarkGray bg=Reset NONE
+"A very long title that goes… " fg=Reset bg=Reset NONE
+"  3h " fg=DarkGray bg=Reset NONE

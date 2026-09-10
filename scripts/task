@@ -1,0 +1,81 @@
+#!/bin/sh
+# The one entry point for checking hackney. CI runs these targets and nothing
+# else, so a local `scripts/task check` and CI cannot drift apart.
+set -eu
+
+usage() {
+	cat >&2 <<'USAGE'
+usage: scripts/task <target>
+
+targets:
+  fmt        format in place
+  fmt:check  verify formatting, non-zero on drift
+  lint       lint; warnings are errors (clippy, shellcheck)
+  test       full test suite: unit, property, snapshot, end-to-end
+  build      compile all targets
+  check      fmt:check && lint && test && build
+
+  coverage   line coverage report (not part of check)
+  test:live  contract tests against the real Hacker News APIs (network)
+USAGE
+	exit 2
+}
+
+CARGO="${CARGO:-cargo}"
+
+# Missing tools fail loudly: a check that quietly skips is a check that has
+# stopped running without anyone noticing.
+need() {
+	if ! command -v "$1" >/dev/null 2>&1; then
+		printf '%s is not installed. %s\n' "$1" "$2" >&2
+		exit 1
+	fi
+}
+
+case "${1:-}" in
+fmt)
+	"$CARGO" fmt --all
+	;;
+fmt:check)
+	"$CARGO" fmt --all -- --check
+	;;
+lint)
+	"$CARGO" clippy --all-targets --all-features --locked -- -D warnings
+	need shellcheck "Install: brew install shellcheck (or apt-get install shellcheck)"
+	shellcheck scripts/task scripts/setup scripts/screenshots .githooks/commit-msg .githooks/pre-commit .githooks/pre-push
+	;;
+test)
+	# nextest runs each test in its own process and kills a hung end-to-end
+	# test instead of stalling the run (see .config/nextest.toml). CI sets
+	# NEXTEST_PROFILE=ci, which also writes JUnit.
+	need cargo-nextest "Install: brew install cargo-nextest (or cargo install cargo-nextest --locked)"
+	"$CARGO" nextest run --all-features --locked
+	;;
+build)
+	"$CARGO" build --all-targets --locked
+	;;
+coverage)
+	need cargo-llvm-cov "Install: brew install cargo-llvm-cov (or cargo install cargo-llvm-cov --locked)"
+	need cargo-nextest "Install: brew install cargo-nextest"
+	rustup component add llvm-tools-preview >/dev/null
+	"$CARGO" llvm-cov nextest --all-features --locked --html
+	"$CARGO" llvm-cov report --summary-only
+	printf '\nHTML report: target/llvm-cov/html/index.html\n'
+	;;
+test:live)
+	# The contract with the real APIs. Needs the network, so it is not part of
+	# check.
+	need cargo-nextest "Install: brew install cargo-nextest"
+	"$CARGO" nextest run --all-features --locked --run-ignored only -E 'test(/live_/)'
+	;;
+check)
+	# Cheapest first, so the fastest signal fails first.
+	"$0" fmt:check
+	"$0" lint
+	"$0" test
+	"$0" build
+	;;
+*)
+	usage
+	;;
+esac

@@ -1,0 +1,22 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++--------------------------------------------+
+| hackney │ Search  40 stories      ● 1m ago |
+| Top  New  Best  Ask  Show  Jobs  ⌕ rust    |
+|──────────────────────────────────━━━━━━────|
+|   1  ▲  439  Shopify moves back to native  |
+|   2  ▲   87  Ask HN: How do you keep up wi…|
+|▎  3  ▲ 1204  The unreasonable effectivenes…|
+|   4  ▲   33  Show HN: I built a tiny Forth…|
+|   5  ▲  301  SQLite is not a toy database  |
+|────────────────────────────────────────────|
+| The unreasonable effectiveness of plain    |
+| text                                       |
+| example.org · ▲ 1204 · by dang · 1h ago    |
+|                                            |
+|  article   www.example.org/plain-text      |
+|  thread    item?id=102                     |
+| 1–7 feed   o open          ? help   q quit |
++--------------------------------------------+

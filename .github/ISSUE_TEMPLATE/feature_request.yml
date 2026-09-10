@@ -1,0 +1,19 @@
+name: Feature request
+description: Something hackney should do that it doesn't.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you were trying to do, and where hackney got in the way.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you'd like
+      description: How you picture it working. Keys, layout, anything.
+    validations:
+      required: false

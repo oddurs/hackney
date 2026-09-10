@@ -1,0 +1,30 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++--------------------------------------------------------------------------------+
+| hackney │ Top stories  5 stories                                      ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                                           |
+|─━━━────────────────────────────────────────────────────────────────────────────|
+|▎  1  ▲  200  ↳    3  日本語のタイトル：Rustで書かれた端末向けハッカーニュ…  1h |
+|   2  ▲  297  ↳   43  🦀 Rust 2026 edition is out 🎉  blog.rust-lang.org     2h |
+|   3  ▲  394  ↳   83  Café naïve résumé: Zürich's Straße über alles          3h |
+|   4  ▲  491  ↳  123  한국어 제목도 제대로 보여야 합니다                     4h |
+|   5  ▲  588  ↳  163  I ❤️ plain text ❤️ and so should you ❤️ really, trul…  5h |
+|                                                                                |
+|                                                                                |
+|                                                                                |
+|────────────────────────────────────────────────────────────────────────────────|
+| 日本語のタイトル：Rustで書かれた端末向けハッカーニュースリーダーの設計について |
+| zenn.dev · ▲ 200 · by kentaro · 1h ago                                         |
+|                                                                                |
+|  article   zenn.dev/article                                                    |
+|  thread    news.ycombinator.com/item?id=1                                      |
+|                                                                                |
+| ─ 3 comments ───────────────────────────────────────────────────────────────── |
+|                                                                                |
+| ▾ kentaro  10m                                                                 |
+|   端末の幅に合わせて折り返されるべき長い日本語のコメントです。句読点も含めて、 |
+|   正しく表示されるでしょうか。                                                 |
+| 1–6 feed   o open   c discuss   n/p thread   x fold            ? help   q quit |
++--------------------------------------------------------------------------------+

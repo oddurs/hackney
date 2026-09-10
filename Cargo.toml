@@ -1,0 +1,40 @@
+[package]
+name = "hackney"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98"
+description = "Hacker News in the terminal: a fast two-pane reader for stories and comment threads"
+license = "MIT"
+authors = ["Oddur Sigurdsson"]
+repository = "https://github.com/oddurs/hackney"
+homepage = "https://github.com/oddurs/hackney"
+readme = "README.md"
+keywords = ["hacker-news", "tui", "terminal", "reader", "cli"]
+categories = ["command-line-utilities"]
+# The crate is the code and its tests; screenshots, CI and tooling stay on GitHub.
+include = ["src/**/*", "tests/**/*", "Cargo.toml", "Cargo.lock", "LICENSE", "README.md", "CHANGELOG.md"]
+
+[dependencies]
+anyhow = "1.0.104"
+libc = "0.2"
+ratatui = "0.30.2"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = { version = "1.0.151", features = ["unbounded_depth"] }
+signal-hook = "0.3"
+unicode-segmentation = "1.13.3"
+unicode-width = "0.2.2"
+ureq = { version = "3.4.1", features = ["json"] }
+
+[dev-dependencies]
+insta = "1.48.0"
+proptest = "1.11.0"
+tempfile = "3.27.0"
+
+[target.'cfg(unix)'.dev-dependencies]
+portable-pty = "0.9.0"
+vt100 = "0.16.2"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

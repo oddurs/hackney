@@ -1,0 +1,40 @@
+name: Bug report
+description: Something behaves differently from what it should.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead. A screenshot helps.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The keys you pressed or what you clicked, and on which story if it matters.
+      placeholder: |
+        1. open the Ask tab
+        2. select the third story and press `x`
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: hackney version
+      description: Output of `hackney --version`.
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Terminal and OS
+      description: Terminal emulator, its size, and your OS.
+      placeholder: Ghostty 1.2 at 170x42, macOS 15.5
+    validations:
+      required: true

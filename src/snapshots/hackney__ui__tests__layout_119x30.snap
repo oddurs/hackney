@@ -1,0 +1,36 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++-----------------------------------------------------------------------------------------------------------------------+
+| hackney │ Top stories  3 stories                                                                             ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                                                                                  |
+|─━━━───────────────────────────────────────────────────────────────────────────────────────────────────────────────────|
+|▎  1  ▲  121  ↳    4  Show HN: A terminal HN reader  example.com                                    pg              1h |
+|   2  ▲  122  ↳    4  Ask HN: What are you working on?                                              pg              2h |
+|   3  ▲  123  ↳    4  A very long title that goes on and on well past the width of any list pane    pg              3h |
+|                                                                                                                       |
+|                                                                                                                       |
+|                                                                                                                       |
+|                                                                                                                       |
+|                                                                                                                       |
+|                                                                                                                       |
+|                                                                                                                       |
+|───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────|
+| Show HN: A terminal HN reader                                                                                         |
+| example.com · ▲ 121 · by pg · 1h ago                                                                                  |
+|                                                                                                                       |
+|  article   example.com/post                                                                                           |
+|  thread    news.ycombinator.com/item?id=1                                                                             |
+|                                                                                                                       |
+| ─ 4 comments ─────────────────────────────────────────────────────────────────────────────────────                    |
+|                                                                                                                       |
+| ▾ alice  10m                                                                                                          |
+|   First paragraph with a https://a.example/1 link.                                                                    |
+|                                                                                                                       |
+|   Second paragraph.                                                                                                   |
+|                                                                                                                       |
+| │ ▾ pg  10m                                                                                                           |
+| │   > quoted                                                                                                          |
+| 1–6 feed   o open   c discuss   n/p thread   x fold   / search   z zoom   r refresh                   ? help   q quit |
++-----------------------------------------------------------------------------------------------------------------------+

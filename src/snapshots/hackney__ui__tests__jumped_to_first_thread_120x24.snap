@@ -1,0 +1,30 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++------------------------------------------------------------------------------------------------------------------------+
+| hackney │ Top stories  1 story                                                                                ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                                                                                   |
+|─━━━────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────|
+|▎  1  ▲  121  ↳    4  Show HN: A terminal HN reader  1h │ ▾ tptacek  10m                                                |
+|                                                        │   Two things. First, a quote:                                 |
+|                                                        │                                                               |
+|                                                        │   > The quick brown fox jumps over the lazy dog, and keeps on |
+|                                                        │   running well past the edge of the pane.                     |
+|                                                        │                                                               |
+|                                                        │   Second, some code:                                          |
+|                                                        │                                                               |
+|                                                        │   fn main() {                                                 |
+|                                                        │       println!("a line of code longer than the pane is wide,  |
+|                                                        │   by some way");                                              |
+|                                                        │   }                                                           |
+|                                                        │                                                               |
+|                                                        │   Source:                                                     |
+|                                                        │   https://github.com/example/repository/blob/main/src/deeply/ |
+|                                                        │   nested/module/file.rs#L120.                                 |
+|                                                        │                                                               |
+|                                                        │ │ ▾ user1  10m                                                |
+|                                                        │ │   Reply at depth 1.                                         |
+|                                                        │ │                                                             |
+| 1–6 feed   o open   c discuss   n/p thread   x fold   / search   z zoom   r refresh                    ? help   q quit |
++------------------------------------------------------------------------------------------------------------------------+

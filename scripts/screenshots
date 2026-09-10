@@ -1,0 +1,54 @@
+#!/bin/sh
+# Regenerate the README's screenshots against the demo server
+# (examples/demo_server.rs): made-up stories, so the images are the same every
+# time and carry nobody's real posts. Needs vhs (brew install vhs).
+set -eu
+
+top=$(git rev-parse --show-toplevel)
+cd "$top"
+
+command -v vhs >/dev/null 2>&1 || {
+	printf 'vhs is not installed. Install: brew install vhs\n' >&2
+	exit 1
+}
+
+cargo build --release --locked --bin hackney --example demo_server
+
+env_file=$(mktemp)
+./target/release/examples/demo_server >"$env_file" &
+server=$!
+trap 'kill "$server" 2>/dev/null; rm -f "$env_file"' EXIT INT TERM
+
+# The server prints its address once it is listening.
+tries=0
+until [ -s "$env_file" ]; do
+	tries=$((tries + 1))
+	[ "$tries" -lt 50 ] || {
+		printf 'the demo server did not start\n' >&2
+		exit 1
+	}
+	sleep 0.1
+done
+# shellcheck disable=SC1090 # written just above by the demo server
+. "$env_file"
+PATH="$top/target/release:$PATH"
+export PATH HACKNEY_FIREBASE_URL HACKNEY_ALGOLIA_URL
+
+cd docs/screenshots
+for tape in "${@:-wide narrow light demo}"; do
+	for t in $tape; do
+		printf 'recording %s\n' "$t"
+		vhs "$t.tape"
+	done
+done
+# Tapes that only take screenshots still write vhs's default recording.
+rm -f out.gif
+
+# A terminal holds few colours: a 256-colour palette halves each screenshot
+# with no visible change. (ffmpeg comes with vhs.)
+for png in *.png; do
+	ffmpeg -loglevel error -y -i "$png" \
+		-vf 'split[a][b];[a]palettegen=max_colors=256:stats_mode=full[p];[b][p]paletteuse=dither=none' \
+		"$png.tmp.png"
+	mv "$png.tmp.png" "$png"
+done

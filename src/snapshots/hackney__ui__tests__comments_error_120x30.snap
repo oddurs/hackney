@@ -1,0 +1,36 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++------------------------------------------------------------------------------------------------------------------------+
+| hackney │ Top stories  3 stories                                                                              ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                                                                                   |
+|─━━━────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────|
+|   1  ▲  121  ↳    4  Show HN: A terminal HN reader  1h │ Ask HN: What are you working on?                              |
+|▎  2  ▲  122  ↳    4  Ask HN: What are you working…  2h │ ▲ 122 · by pg · 2h ago                                        |
+|   3  ▲  123  ↳    4  A very long title that goes…   3h │                                                               |
+|                                                        │  thread    news.ycombinator.com/item?id=2                     |
+|                                                        │                                                               |
+|                                                        │  ✗ https://hn.algolia.com/api/v1/items/2: status code 503     |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+|                                                        │                                                               |
+| 1–6 feed   o open   c discuss   n/p thread   x fold   / search   z zoom   r refresh                    ? help   q quit |
++------------------------------------------------------------------------------------------------------------------------+

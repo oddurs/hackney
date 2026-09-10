@@ -1,0 +1,62 @@
+#!/bin/sh
+# Reject anything that is not a Conventional Commit, and any attribution to an
+# AI assistant. The work here is published under its author's name; trailers
+# naming a model must never reach a git object.
+set -eu
+
+msg_file="$1"
+
+# Strip comments before looking at anything.
+body=$(sed -e '/^#/d' "$msg_file")
+subject=$(printf '%s\n' "$body" | head -n 1)
+
+die() {
+	printf 'commit-msg: %s\n' "$1" >&2
+	printf '\n  got: %s\n' "$subject" >&2
+	exit 1
+}
+
+case "$subject" in
+"Merge branch"* | "Merge remote-tracking"* | "Revert "*)
+	exit 0
+	;;
+*) ;;
+esac
+
+types='feat|fix|chore|docs|perf|refactor|test|build|ci|style'
+if ! printf '%s' "$subject" | grep -Eq "^($types)(\([a-z0-9._/-]+\))?!?: .+"; then
+	printf 'commit-msg: subject is not a Conventional Commit\n' >&2
+	printf '  expected: <type>(<scope>)!: <subject>\n' >&2
+	type_list=$(printf '%s' "$types" | tr '|' ' ')
+	printf '  types:    %s\n' "$type_list" >&2
+	printf '  got:      %s\n' "$subject" >&2
+	exit 1
+fi
+
+if [ "${#subject}" -gt 72 ]; then
+	die "subject is ${#subject} characters; keep it to 72"
+fi
+
+case "$subject" in
+*.) die 'subject must not end with a period' ;;
+*) ;;
+esac
+
+# Attribution ban over the whole message, trailers included. The pattern is
+# shared with the release workflow. Fail closed: grep exits 1 for "no match";
+# anything else means the pattern could not be read.
+patterns="$(dirname "$0")/attribution.ere"
+status=0
+printf '%s\n' "$body" | grep -Eiq -f "$patterns" || status=$?
+case $status in
+0)
+	printf 'commit-msg: assistant attribution is not permitted in commit messages\n' >&2
+	printf '  remove co-author trailers, "generated with" lines and session links\n' >&2
+	exit 1
+	;;
+1) ;;
+*)
+	printf 'commit-msg: cannot read %s; refusing to commit unchecked\n' "$patterns" >&2
+	exit 1
+	;;
+esac

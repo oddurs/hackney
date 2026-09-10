@@ -1,0 +1,32 @@
+#!/bin/sh
+# Run once after cloning. Idempotent.
+set -eu
+
+top=$(git rev-parse --show-toplevel)
+cd "$top"
+
+printf 'wiring git hooks -> .githooks\n'
+git config core.hooksPath .githooks
+chmod +x .githooks/commit-msg .githooks/pre-commit .githooks/pre-push
+
+printf 'installing the toolchain from rust-toolchain.toml\n'
+if command -v rustup >/dev/null 2>&1; then
+	rustup show >/dev/null
+else
+	printf 'rustup not found: install from https://rustup.rs and re-run\n' >&2
+	exit 1
+fi
+
+printf 'checking tools\n'
+missing=''
+for tool in cargo-nextest shellcheck; do
+	command -v "$tool" >/dev/null 2>&1 || missing="$missing $tool"
+done
+if [ -n "$missing" ]; then
+	printf 'missing:%s\n' "$missing" >&2
+	printf '  macOS: brew install cargo-nextest shellcheck\n' >&2
+	printf '  Linux: cargo install --locked cargo-nextest; apt-get install shellcheck\n' >&2
+	exit 1
+fi
+
+printf 'ready: scripts/task check runs everything CI runs\n'

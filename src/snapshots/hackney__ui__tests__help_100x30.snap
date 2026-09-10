@@ -1,0 +1,36 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++----------------------------------------------------------------------------------------------------+
+| hackney │ Top stories  3 stories                                                          ● 1m ago |
+| Top   New   Best   Ask   Show   Jobs                                                               |
+|─━━━────────────────────────────────────────────────────────────────────────────────────────────────|
+|▎  1  ▲  121  ↳   ┌ keys ────────────────────────────────────────────────────────┐g              1h |
+|   2  ▲  122  ↳   │  j / k, ↓ / ↑      move through stories                      │g              2h |
+|   3  ▲  123  ↳   │  g / G             first / last                              │g              3h |
+|                  │  1–6, tab          switch feed                               │                  |
+|                  │  enter, o          open the article                          │                  |
+|                  │  c                 open the discussion on HN                 │                  |
+|                  │  J / K, space / b  scroll comments by line / page            │                  |
+|                  │  n / p             next / previous thread                    │                  |
+|                  │  x                 fold the thread you're reading            │                  |
+|                  │  z                 comments full width                       │                  |
+|──────────────────│  /                 search Hacker News                        │──────────────────|
+| Show HN: A termin│  r                 refresh                                   │                  |
+| example.com · ▲ 1│  ?                 close this help                           │                  |
+|                  │  q                 quit                                      │                  |
+|  article   exampl│                                                              │                  |
+|  thread    news.y│  mouse                                                       │                  |
+|                  │  click a tab             switch feed                         │                  |
+| ─ 4 comments ────│  click a story           read its comments                   │───────────────── |
+|                  │  double-click a story    open the article                    │                  |
+| ▾ alice  10m     │  click a comment's name  fold its replies                    │                  |
+|   First paragraph│  click a link            open it in the browser              │                  |
+|                  │  scroll wheel            scroll the list or the comments     │                  |
+|   Second paragrap└──────────────────────────────────────────────────────────────┘                  |
+|                                                                                                    |
+| │ ▾ pg  10m                                                                                        |
+| │   > quoted                                                                                       |
+| 1–6 feed   o open   c discuss   n/p thread   x fold   / search   z zoom            ? help   q quit |
++----------------------------------------------------------------------------------------------------+

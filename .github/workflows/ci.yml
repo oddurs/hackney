@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        # The end-to-end tests drive a real pseudo-terminal, and the two
+        # platforms' terminals and link openers differ.
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      NEXTEST_PROFILE: ci
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions-rust-lang/setup-rust-toolchain@166cdcfd11aee3cb47222f9ddb555ce30ddb9659 # v1
+
+      - uses: taiki-e/install-action@fa23953489c080190314742a9b907f8e97c6767c # v2.87.10
+        with:
+          tool: cargo-nextest,shellcheck
+
+      # The only command CI runs to check, the same one run locally.
+      - run: scripts/task check
+
+      - name: Test report
+        if: always()
+        shell: python3 {0}
+        run: |
+          import os, xml.etree.ElementTree as ET
+          path = "target/nextest/ci/junit.xml"
+          out = open(os.environ["GITHUB_STEP_SUMMARY"], "a")
+          if not os.path.exists(path):
+              out.write("No test results: the run stopped before tests.\n")
+              raise SystemExit
+          cases = [
+              (tc.get("classname"), tc.get("name"), float(tc.get("time", 0)),
+               tc.find("failure") is not None or tc.find("error") is not None)
+              for tc in ET.parse(path).getroot().iter("testcase")
+          ]
+          failed = [c for c in cases if c[3]]
+          out.write(f"### Tests on {os.environ.get('RUNNER_OS')}: "
+                    f"{len(cases) - len(failed)} passed, {len(failed)} failed\n\n")
+          for c in failed:
+              out.write(f"- ❌ `{c[0]}::{c[1]}`\n")
+          out.write("\n| slowest | seconds |\n|---|---:|\n")
+          for c in sorted(cases, key=lambda c: -c[2])[:5]:
+              out.write(f"| `{c[1]}` | {c[2]:.1f} |\n")
+
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions-rust-lang/setup-rust-toolchain@166cdcfd11aee3cb47222f9ddb555ce30ddb9659 # v1
+
+      - uses: taiki-e/install-action@fa23953489c080190314742a9b907f8e97c6767c # v2.87.10
+        with:
+          tool: cargo-llvm-cov,cargo-nextest
+
+      - run: scripts/task coverage | tee coverage.txt
+
+      - name: Coverage summary
+        run: |
+          {
+            echo "### Coverage"
+            echo '```'
+            sed -n '/^Filename/,/^TOTAL/p' coverage.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  required:
+    name: required
+    runs-on: ubuntu-latest
+    needs: [check, coverage]
+    steps:
+      - run: echo "all required jobs passed"

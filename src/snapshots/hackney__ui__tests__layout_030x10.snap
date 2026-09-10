@@ -1,0 +1,16 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++------------------------------+
+| hackney │ Top stories        |
+| Top  New  Best  Ask  Show  Jo|
+|─━━━──────────────────── 1/3 ─|
+|▎  1  ▲  121  Show HN: A term…|
+|   2  ▲  122  Ask HN: What ar…|
+|──────────────────────────────|
+| Show HN: A terminal HN       |
+| reader                       |
+| example.com · ▲ 121 · by pg… |
+| 1–6 feed     ? help   q quit |
++------------------------------+

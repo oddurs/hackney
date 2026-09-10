@@ -1,0 +1,30 @@
+---
+source: src/ui.rs
+expression: framed(&buf)
+---
++--------------------------------------------------------------------------------+
+| hackney┌ keys ────────────────────────────────────────────────────────┐ 1m ago |
+| Top   N│  j / k, ↓ / ↑      move through stories                      │        |
+|─━━━────│  g / G             first / last                              │────────|
+|▎  1  ▲ │  1–6, tab          switch feed                               │     1h |
+|   2  ▲ │  enter, o          open the article                          │     2h |
+|   3  ▲ │  c                 open the discussion on HN                 │e…   3h |
+|        │  J / K, space / b  scroll comments by line / page            │        |
+|        │  n / p             next / previous thread                    │        |
+|        │  x                 fold the thread you're reading            │        |
+|        │  z                 comments full width                       │        |
+|        │  /                 search Hacker News                        │        |
+|────────│  r                 refresh                                   │────────|
+| Show HN│  ?                 close this help                           │        |
+| example│  q                 quit                                      │        |
+|        │                                                              │        |
+|  articl│  mouse                                                       │        |
+|  thread│  click a tab             switch feed                         │        |
+|        │  click a story           read its comments                   │        |
+| ─ 4 com│  double-click a story    open the article                    │─────── |
+|        │  click a comment's name  fold its replies                    │        |
+| ▾ alice│  click a link            open it in the browser              │        |
+|   First│  scroll wheel            scroll the list or the comments     │        |
+|        └──────────────────────────────────────────────────────────────┘        |
+| 1–6 feed   o open   c discuss   n/p thread   x fold            ? help   q quit |
++--------------------------------------------------------------------------------+
